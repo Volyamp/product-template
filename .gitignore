@@ -1,0 +1,23 @@
+# 秘密情報（git に入れない。名前だけを .env.example に書く）
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# 言語・ツールが作るもの
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+dist/
+build/
+coverage/
+*.log
+
+# エディタ・OS
+.idea/
+.vscode/
+.DS_Store

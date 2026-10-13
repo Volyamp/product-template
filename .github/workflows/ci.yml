@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      # テストを実行するコマンド。依頼文 P6 で、AI が ARCHITECTURE の「2. 技術選定」に合わせて設定する。
+      # 例："pytest" や "npm test"
+      # 空のまま tests/ にテストがあると、このジョブは失敗する（テストが実行されないまま通ることを防ぐため）。
+      TEST_COMMAND: ""
+    steps:
+      - uses: actions/checkout@v4
+
+      # P6 で、言語に合わせたセットアップ（言語のインストール、依存関係のインストールなど）をここに足す。
+
+      - name: テストの有無を確認して実行
+        run: |
+          count=$(find tests -type f ! -name '.gitkeep' 2>/dev/null | wc -l)
+          if [ "$count" -eq 0 ]; then
+            echo "tests/ にテストがありません（テストなし）。何も実行していません。"
+            exit 0
+          fi
+          if [ -z "$TEST_COMMAND" ]; then
+            echo "::error::tests/ にテストがありますが、ci.yml の TEST_COMMAND が空です。"
+            exit 1
+          fi
+          bash -c "$TEST_COMMAND"
