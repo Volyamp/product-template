@@ -1,0 +1,6 @@
+# 変更に人間のレビューが必要なファイル。
+# ブランチ保護で「コードオーナーのレビュー必須」を有効にしたときに効く（dev-rules の setup.md）。
+/.github/ @jumpbol
+/CLAUDE.md @jumpbol
+/docs/ARCHITECTURE.md @jumpbol
+/docs/adr/ @jumpbol
