@@ -20,7 +20,8 @@ jobs:
 
       - name: テストの有無を確認して実行
         run: |
-          count=$(find tests -type f ! -name '.gitkeep' 2>/dev/null | wc -l)
+          # adapter.* は名前の対応だけのファイルなので、テストの数には入れない（dev-rules task-guide「保守運用」の定義）
+          count=$(find tests -type f ! -name '.gitkeep' ! -name 'adapter.*' 2>/dev/null | wc -l)
           if [ "$count" -eq 0 ]; then
             echo "tests/ にテストがありません（テストなし）。何も実行していません。"
             exit 0
