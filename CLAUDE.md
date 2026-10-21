@@ -6,20 +6,20 @@
 1. https://raw.githubusercontent.com/jumpbol/dev-rules/main/VERSION を読む（1行）。
 2. 版が「v8」と一致すれば、dev-rules の本文は読まず、「基本の決まり」に従う。
 3. 版が違う、または読めないときは、作業を始めず人間に伝える（勝手に合わせない）。
-4. 詳しい決まりが必要な作業だけ、下の「読む先の表」の節を読む。
+4. 作業の種類に応じて、下の「読む先の表」の文書を読む（詳しい決まりが必要なときだけ）。
 
 ## 読む先の表
-| 作業 | 読む箇所（dev-rules） |
+作業の種類によらず、common-rules.md を読む（枝の名前、止まるところ、安全）。そのうえで、作業に応じて次を読む。
+
+| 作業 | 追加で読む文書（dev-rules） |
 |---|---|
-| 要件定義・設計の確定 | common-rules §3、task-guide「要件定義」「設計の確定」 |
-| 決定の記録（ADR） | common-rules §4、adr-template.md |
-| 実装・README | common-rules §1・§1-2・§5、task-guide「実装」「README作成」 |
-| テスト作成・取り込み・失敗時 | common-rules §6、task-guide「テスト作成」「テストの取り込み」「テストが失敗したとき」 |
-| 静的レビュー | common-rules §7、task-guide「静的レビュー」 |
-| 文書の整理 | task-guide「文書の整理」 |
-| 保守・新機能 | task-guide「保守運用」「新機能の追加」 |
+| 要件定義・設計の確定・決定の記録（ADR） | rules/design.md、ADR の書き方は adr-template.md |
+| 実装・README | rules/impl.md |
+| テスト作成・取り込み・失敗時 | rules/test.md |
+| 静的レビュー | rules/review.md |
+| 文書の整理 | rules/docs-cleanup.md |
+| 保守・新機能 | rules/maintain.md |
 | 動的テスト | dynamic-test.md |
-| 止まるところ・破壊的な操作 | common-rules §9・§10 |
 
 ## 基本の決まり（要点）
 - 人間の指示は、この要点より優先する。範囲が読み取れないときは、先に一度確認する。規則から外れて従ったときは、何を外したかを一言で報告する。
